@@ -7,13 +7,6 @@
 **Environment:** Docker Desktop on Windows (Ubuntu 22.04 container for SQLite, postgres:15 image for PostgreSQL)
 
 ---
-
-## Introduction
-
-Honestly, I went into this expecting a straightforward "install two databases, run some queries" kind of lab. What I didn't expect was to come out of it actually understanding why SQLite and PostgreSQL behave the way they do at a hardware level pages, memory mapping, dead rows, background daemons. Turns out the reason one is "lightweight" and the other is "production-grade" has very little to do with features and almost everything to do with how they talk to the OS and manage data on disk. This is what I found.
-
----
-
 ## Environment Setup
 
 Both databases were run inside Docker containers on Windows using Docker Desktop, which handles the Linux layer transparently via WSL2.
@@ -138,7 +131,7 @@ GROUP BY a.AlbumId ORDER BY TrackCount DESC LIMIT 20;"
 | Without mmap | **3ms** |
 | With mmap | **3ms** |
 
-For a JOIN across two small, already-cached tables, the difference was negligible. At this data size the bottleneck is CPU (sorting, grouping), not I/O — so mmap contributes nothing here.
+For a JOIN across two small, already-cached tables, the difference was negligible. At this data size the bottleneck is CPU (sorting, grouping), not I/O so mmap contributes nothing here.
 
 ---
 

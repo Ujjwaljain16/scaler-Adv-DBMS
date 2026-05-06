@@ -1,10 +1,3 @@
-Submission Guidelines
-All submissions must be made via the GitHub repository shared with the class.
-Create a Pull Request (PR) with:
-Your Role Number
-Your Name
-Instructions will also be shared on the WhatsApp (Scalar) channel.
-
 Lab Tasks
 1. SQLite3 Exploration
 Install SQLite3 and perform the following:
